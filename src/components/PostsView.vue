@@ -1,11 +1,9 @@
 <template>
   <div class="mainposts d-flex flex-column">
     showing posts
-
-    <PostRow />
-    <PostRow />
-    <PostRow />
-    <PostRow />
+    <div class="posts">
+      <PostRow />
+    </div>
   </div>
 </template>
 
@@ -21,10 +19,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.mainposts{
+.mainposts {
   width: 100%;
   background-color: #eee;
   align-items: center;
+}
+
+.posts {
+  border-top-color: rgb(47, 51, 54);
+  border-top: 1px solid;
 }
 </style>
