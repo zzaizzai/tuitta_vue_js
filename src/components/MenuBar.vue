@@ -38,5 +38,6 @@ export default {};
   height: 100vh;
   background-color: cadetblue;
   text-align: start;
+  font-size: 150%;
 }
 </style>

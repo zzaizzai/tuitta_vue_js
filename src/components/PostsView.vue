@@ -1,9 +1,10 @@
 <template>
-  <div class="hello">
-    PostRowdsadas\sda
-    asd
-    asdss
+  <div class="mainposts d-flex flex-column">
+    showing posts
 
+    <PostRow />
+    <PostRow />
+    <PostRow />
     <PostRow />
   </div>
 </template>
@@ -20,4 +21,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.mainposts{
+  width: 100%;
+  background-color: #eee;
+  align-items: center;
+}
 </style>

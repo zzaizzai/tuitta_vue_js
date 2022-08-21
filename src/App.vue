@@ -2,18 +2,19 @@
   <div class="main">
     <div class="d-flex flex-nowrap">
       <div class="flex-shrink-1 left-menu" style="">
-        <MenuBar/>
+        <MenuBar />
       </div>
-      <div class="flex-grow-1 right-container" style="">
-        <router-view></router-view>
+      <div class="right-container">
+        <div class="d-flex flex-grow-1" style="">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script >
-
-import MenuBar from './components/MenuBar.vue'
+import MenuBar from "./components/MenuBar.vue";
 
 export default {
   name: "App",
@@ -29,15 +30,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  font-weight: bold;
 }
-
 .main {
   height: 100vh;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   text-align: start;
 }
 .left-menu {
+  position: fixed;
   height: 100vh;
   background-color: gainsboro;
   width: 20%;
@@ -45,6 +46,7 @@ export default {
 
 .right-container {
   height: 100vh;
-  background-color: indianred;
+  width: 100%;
+  /* background-color: indianred; */
 }
 </style>
