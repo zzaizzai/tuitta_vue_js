@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="main">
+    <div class="d-flex flex-nowrap">
+      <div class="flex-shrink-1 left-menu" style="">
+        <MenuBar/>
+      </div>
+      <div class="flex-grow-1 right-container" style="">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script >
+
+import MenuBar from './components/MenuBar.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MenuBar,
+  },
+};
 </script>
 
 <style>
@@ -21,6 +30,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.main {
+  height: 100vh;
+  background-color: cadetblue;
+  text-align: start;
+}
+.left-menu {
+  height: 100vh;
+  background-color: gainsboro;
+  width: 20%;
+}
+
+.right-container {
+  height: 100vh;
+  background-color: indianred;
 }
 </style>
