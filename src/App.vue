@@ -47,6 +47,5 @@ export default {
 .right-container {
   height: 100vh;
   width: 100%;
-  /* background-color: indianred; */
 }
 </style>

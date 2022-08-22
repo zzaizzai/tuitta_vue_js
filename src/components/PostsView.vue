@@ -1,6 +1,5 @@
 <template>
   <div class="mainposts d-flex flex-column">
-    showing posts
     <div class="posts">
       <PostRow />
     </div>
@@ -24,9 +23,10 @@ export default {
   background-color: #eee;
   align-items: center;
 }
-
 .posts {
-  border-top-color: rgb(47, 51, 54);
-  border-top: 1px solid;
+  /* border-top-color: rgb(47, 51, 54);
+  border-top: 1px solid; */
+  width: 100%;
+  /* position: fixed; */
 }
 </style>
