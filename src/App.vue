@@ -48,4 +48,10 @@ export default {
   height: 100vh;
   width: 100%;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+
 </style>

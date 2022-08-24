@@ -1,24 +1,15 @@
-# tuitta_vue_js
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue.js   
+Firebase   
 
-### Compiles and minifies for production
+same DB with (https://github.com/zzaizzai/TuittaSwift2)
+
+
 ```
-npm run build
+npm init   
+npm install   
+npm run serve   
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,31 +1,30 @@
 <template>
   <div>
-    <div
+    <!-- <div
       v-if="showPostImage"
-      class="showPostImage d-flex"
+      class="showPostImage"
       @click="this.showPostImage = false"
     >
-      <div class="mx-auto my-auto">
-        showing image
-        <!-- <img
-          src="https://cdn.pixabay.com/photo/2022/08/12/10/27/crows-7381423_960_720.jpg"
+      <div class="showPostImage-bg mx-auto"></div>
+      <div class="v-100 h-100 d-flex">
+        <img
           alt=""
-          class="showPostImage-image"
+          class="showPostImage-image mx-auto my-auto"
           :style="{
-            backgroundImage: `url(${state.showingPostDetail.postImageUrl})`,
+            backgroundImage: `url(${showingPostDetail.postImageUrl})`,
           }"
-        /> -->
+        />
       </div>
-    </div>
+    </div> -->
     <div class="d-flex">
       <div class="mx-auto">
-        <div v-for="(post, i) in this.$store.state.posts" :key="i">
+        <div v-for="(post, i) in posts" :key="i">
           <div class="post-box">
             <div class="d-flex">
               <div>
                 <img
                   alt=""
-                  class="profile-image m-2"
+                  class="profile-image m-2 pointer"
                   :style="{
                     backgroundImage: `url(${post.userProfileUrl})`,
                   }"
@@ -43,7 +42,7 @@
                 <div>{{ post.postText }}</div>
                 <div>
                   <img
-                    @click="this.showPostImage = true"
+                    @click="showPostDetail(post)"
                     alt=""
                     class="post-image"
                     :style="{
@@ -53,7 +52,7 @@
                 </div>
 
                 <div class="d-flex justify-content-around w-100">
-                  <div class="buttons">
+                  <div class="buttons pointer">
                     <svg
                       class="w-6 h-6 button-size"
                       fill="none"
@@ -72,7 +71,7 @@
                     0
                   </div>
 
-                  <div class="buttons">
+                  <div class="buttons pointer">
                     <svg
                       class="w-6 h-6 button-size"
                       fill="none"
@@ -91,7 +90,7 @@
                   </div>
 
                   <!-- like button -->
-                  <div class="buttons buttons-like">
+                  <div class="buttons buttons-like pointer">
                     <svg
                       class="w-6 h-6 button-size"
                       fill="none"
@@ -127,9 +126,36 @@ export default {
     return {
       showPostImage: false,
       showingPostDetail: {
-        postImageUrl: null,
+        postImageUrl:
+          "https://cdn.pixabay.com/photo/2022/08/12/10/27/crows-7381423_960_720.jpg",
         post: null,
       },
+      posts: [
+        {
+          userUid: "userUid",
+          userName: "James",
+          userEmail: "test@test.com",
+          userProfileUrl:
+            "https://cdn.pixabay.com/photo/2022/07/10/19/28/mountains-7313638_960_720.jpg",
+          postText: "i love birds as much as i love you",
+          postImageUrl:
+            "https://cdn.pixabay.com/photo/2022/08/12/10/27/crows-7381423_960_720.jpg",
+          didLike: true,
+          showPostImagefullscreen: false,
+        },
+        {
+          userUid: "userUid",
+          userName: "James",
+          userEmail: "test@test.com",
+          userProfileUrl:
+            "https://cdn.pixabay.com/photo/2022/07/10/19/28/mountains-7313638_960_720.jpg",
+          postText: "i love birds as much as i love you",
+          postImageUrl:
+            "https://cdn.pixabay.com/photo/2022/08/12/10/27/crows-7381423_960_720.jpg",
+          didLike: true,
+          showPostImagefullscreen: false,
+        },
+      ],
     };
   },
   methods: {
@@ -139,6 +165,28 @@ export default {
     showPostDetail(post) {
       this.showingPostDetail.postImageUrl = post.postImageUrl;
       this.showingPostDetail.post = post;
+      this.showPostImage = true;
+    },
+
+    uploadNewpost() {
+
+      //tempo data
+      let newPostData = [
+        {
+          userUid: "userUid",
+          userName: "James",
+          userEmail: "test@test.com",
+          userProfileUrl:
+            "https://cdn.pixabay.com/photo/2022/07/10/19/28/mountains-7313638_960_720.jpg",
+          postText: "i love birds as much as i love you",
+          postImageUrl:
+            "https://cdn.pixabay.com/photo/2022/08/12/10/27/crows-7381423_960_720.jpg",
+          didLike: false,
+          showPostImagefullscreen: false,
+        },
+      ];
+
+      console.log(newPostData)
     },
   },
 };
@@ -148,15 +196,24 @@ export default {
 <style scoped>
 .showPostImage {
   position: fixed;
-  background-color: gray;
   width: 100vw;
   height: 100vh;
 }
 
 .showPostImage-image {
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60%;
+  height: 60%;
+}
+
+.showPostImage-bg {
+  position: fixed;
+  background-color: black;
+  opacity: 70%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .post-box {
@@ -174,21 +231,12 @@ export default {
   width: 500px;
   height: 400px;
 }
+
 .button-size {
   height: 25px;
 }
-.buttons:hover {
-  cursor: pointer;
-}
+
 .buttons-like:hover {
   color: rgb(255, 87, 87);
-}
-.profile-image {
-  background-color: gray;
-  border-radius: 100px;
-  width: 50px;
-  height: 50px;
-  background-size: cover;
-  float: left;
 }
 </style>

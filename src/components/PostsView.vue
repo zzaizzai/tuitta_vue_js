@@ -1,5 +1,10 @@
 <template>
   <div class="mainposts d-flex flex-column">
+
+    <div class="nav-bar"></div>
+    <div class="">
+      <NewPost/>
+    </div>
     <div class="posts">
       <PostRow />
     </div>
@@ -8,16 +13,18 @@
 
 <script>
 import PostRow from "./Post/PostRow.vue";
+import NewPost from "./Post/NewPost.vue";
 export default {
   name: "PostsViw",
   components: {
     PostRow,
+    NewPost,
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .mainposts {
   width: 100%;
   background-color: #eee;
@@ -28,5 +35,14 @@ export default {
   border-top: 1px solid; */
   width: 100%;
   /* position: fixed; */
+}
+
+.profile-image {
+  background-color: gray;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  float: left;
 }
 </style>
